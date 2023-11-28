@@ -192,10 +192,35 @@ The ontology includes 111 individuals, reflecting a scenario where individuals T
 
 #### SWRL Rule
 
-Two SWRL rule is implemented, offering a 20% price cut on books if a person buys more than two. The rule is as follows:
-```
-Persona(?p) ^ hasPurchasedBook(?p, ?nb) ^ swrlb:greaterThan(?nb, 2) -> hasPriceCut(?p, 0.2)
-```
+Three SWRL rules have been implemented to enhance the functionality of the Ambient Book Shopping system:
+
+1. **Price Cut Rule:**
+   - **Objective:** Offer a 20% price cut on books if a person purchases more than two.
+   - **SWRL Rule:**
+     ```swrl
+     Persona(?p) ^ hasPurchasedBook(?p, ?nb) ^ swrlb:greaterThan(?nb, 2) -> hasPriceCut(?p, 0.2)
+     ```
+   - **Explanation:** This rule dynamically applies a 20% price cut to the total purchase cost for individuals who buy more than two books, promoting bulk purchases.
+
+2. **Access Section Engagement Rule:**
+   - **Objective:** Capture an engagement when a person accesses a section.
+   - **SWRL Rule:**
+     ```swrl
+     Persona(?p) ^ AccessedEngagement(?aeng) ^ hasMobilePhone(?p, ?phone) ^ isMobilePhoneOf(?phone, ?p) -> hasFinished(?p, ?aeng)
+     ```
+   - **Explanation:** This rule records the completion of an engagement when a person, identified as a persona, accesses a section in the bookshop. The presence of a mobile phone is a prerequisite.
+
+3. **Purchase Book Engagement Rule:**
+   - **Objective:** Capture an engagement when a person purchases a book.
+   - **SWRL Rule:**
+     ```swrl
+     Persona(?p) ^ PurchaseBookEngagement(?peng) ^ hasMobilePhone(?p, ?phone) ^ isMobilePhoneOf(?phone, ?p) -> hasFinished(?p, ?peng)
+     ```
+   - **Explanation:** This rule registers the completion of an engagement when a person, represented as a persona, purchases a book. The rule requires a connection between the person and their mobile phone.
+
+These rules collectively contribute to a seamless and intelligent book retail experience within the Ambient Book Shopping environment.
+
+
 
 ### Conclusion and Future Improvements
 
