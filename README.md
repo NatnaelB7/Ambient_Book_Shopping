@@ -4,7 +4,7 @@
 
 ## Repository Organization
 
-In this repository, you'll find the ontology file named "Ambient_Book_Shopping_Ontology.Owl," along with the README.md file. To utilize the ontology, simply open it with Protègè 5.5.
+In this repository, you'll find the ontology file named "Ambient_Book_Shopping_Project.rdf," along with the README.md file. To utilize the ontology, simply open it with Protègè 5.5.
 
 ## Project Overview
 
